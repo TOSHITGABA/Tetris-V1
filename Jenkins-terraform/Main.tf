@@ -1,5 +1,5 @@
 resource "aws_iam_role" "example_role" {
-  name = "Jenkins-terraform"
+  name = "Jenkins-terraform21"
 
   assume_role_policy = <<EOF
 {
@@ -23,13 +23,13 @@ resource "aws_iam_role_policy_attachment" "example_attachment" {
 }
 
 resource "aws_iam_instance_profile" "example_profile" {
-  name = "Jenkins-terraform"
+  name = "Jenkins-terraform21"
   role = aws_iam_role.example_role.name
 }
 
 
 resource "aws_security_group" "Jenkins-sg" {
-  name        = "Jenkins-Security Group"
+  name        = "Jenkins-Security Group21"
   description = "Open 22,443,80,8080,9000"
 
   # Define a single ingress rule to allow traffic on all specified ports
@@ -55,20 +55,20 @@ resource "aws_security_group" "Jenkins-sg" {
   }
 
   tags = {
-    Name = "Jenkins-sg"
+    Name = "Jenkins-sg21"
   }
 }
 
 resource "aws_instance" "jenkins" {
   ami                    = "ami-0f5ee92e2d63afc18"
   instance_type          = "t2.large"
-  key_name               = "Mumbai"
+  key_name               = "Mumbaii"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
   user_data              = templatefile("./install_jenkins.sh", {})
   iam_instance_profile   = aws_iam_instance_profile.example_profile.name
 
   tags = {
-    Name = "Jenkins-Argo"
+    Name = "Jenkins-Argo21"
   }
 
   root_block_device {
@@ -81,6 +81,6 @@ resource "aws_eip" "jenkins" {
   domain   = "vpc"
 
   tags = {
-    Name = "Jenkins-EIP"
+    Name = "Jenkins-EIP21"
   }
 }

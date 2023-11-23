@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "vishal-terraform" # Replace with your actual S3 bucket name
+    bucket = "toshit" # Replace with your actual S3 bucket name
     key    = "Jenkins/terraform.tfstate"
-    region = "ap-south-1"
+    region = "us-east-2"
   }
 }
